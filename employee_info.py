@@ -1,4 +1,4 @@
-# Define a dictionary to store employee information
+# Define a list of 6 dictionaries to store 6 employees' information
 employee_data = [
     {"name": "John", "age": 30, "department": "Sales", "salary": 50000},
     {"name": "Jane", "age": 25, "department": "Marketing", "salary": 60000},
@@ -7,6 +7,11 @@ employee_data = [
     {"name": "Mike", "age": 32, "department": "Engineering", "salary": 65000},
     {"name": "Peter", "age": 40, "department": "Sales", "salary": 60000}
 ]
+
+def sort_employee_data(sortkey): 
+    templist = employee_data.copy() #don't sort the original data, may want to keep original as it
+    templist.sort(key=lambda x:x[sortkey]) #use sortkey instead of hardcoding it, so we can change to what we need to sort
+    return templist
 
 def get_employees_by_age_range(age_lower_limit, age_upper_limit):
     result = []
@@ -22,24 +27,26 @@ def calculate_average_salary():
     total = 0
     average = 0
 
-    #add your implementation to calculate here
+    for everyDictionary in employee_data:
+        employeeSalary = everyDictionary["salary"] #retrieve employee salary from all dictionaries
+        total += employeeSalary
 
-
+    average = total / len(employee_data) #length of the employee_data is equal to no. of employees
+    average = round(average, 2) #round average to 2 d.p.
     return average
 
-def get_employees_by_dept(department):
-    result = []
+def get_employees_by_dept(targetdept):
+    result = [] # A empty list, to be filled in with selected dictionaries
 
-    # Add your implementation from here
-
-
+    for everyDictionary in employee_data: #loop through all data in employee_data
+        if everyDictionary["department"] == targetdept:
+            result.append(everyDictionary) #if department is same as our target, add to list using append
     return result
 
 def display_all_records():
     print(("Name" + "\t" +"Age" +"\t" +"Department" +"\t" +"Salary" ).expandtabs(15))
     for item in employee_data:
         print((item["name"] + "\t" + str(item["age"]) + "\t" + item["department"] + "\t" + str(item["salary"])).expandtabs(15))
-
 
 def display_records(employee_info):
     print(("Name" + "\t" +"Age" +"\t" +"Department" +"\t" +"Salary" ).expandtabs(15))
@@ -56,8 +63,7 @@ def display_main_menu():
     print("2 - Display average salary")
     print("3 - Display employee within age range")
     print("4 - Display employee in a department")
-
-
+    print ("5 - Display all records according to age")
     print("Q - Quit")
 
     option = input("Enter selection =>")
@@ -80,6 +86,12 @@ def display_main_menu():
         department = input("Name of Department = ")
         employee_info = get_employees_by_dept(department)
         display_records(employee_info)
+
+    elif option == '5':
+        #ask for key to be usd for sorting
+        sortkey = input("Enter key for sorting = ")
+        newlist = sort_employee_data(sortkey)
+        display_records(newlist)
 
     elif option == 'Q':
         quit()
