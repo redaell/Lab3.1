@@ -5,13 +5,14 @@ SORT_DESCENDING = 1
 
 
 def bubble_sort(arr, sorting_order):
-
+ 
     # Copy input list to results list
     arr_result = arr.copy()
 
     # Get number of elements in the list
     n = len(arr_result)
 
+<<<<<<< HEAD
     if n==0:
         return 0
     if n>= 10:
@@ -22,6 +23,16 @@ def bubble_sort(arr, sorting_order):
             return 2
     
 
+=======
+    if n == 0:
+        return 0
+    if n >= 10:
+        return 1
+    
+    for item in arr_result:
+        if isinstance(item, int)==False: #check if the instance of the object is an integer. if not, return 2
+            return 2
+>>>>>>> df7c82d0eeaf159650082eda5acd96ee5cba3f6b
 
     if n < 10:
         # Traverse through all array elements

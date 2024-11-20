@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 [submodule "lab2"]
 	path = lab2
 	url = https://github.com/redaell/lab2.git
+=======
+[submodule "Lab2_prac"]
+	path = Lab2_prac
+	url = https://github.com/redaell/Lab2_prac.git
+>>>>>>> df7c82d0eeaf159650082eda5acd96ee5cba3f6b
