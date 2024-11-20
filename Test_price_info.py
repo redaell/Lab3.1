@@ -7,9 +7,8 @@ def test_cost_of_fruit():
     result = PI.cost_of_fruits(fruitname, quantity) #remember to add "PI" so they know what library to take from
     assert(result == expected)
 
-
 def test_total_cost():
-    PI.quantity_list = quantity_list= {'apple': 5, 'orange':5, 'watermelon': 2, 'pineapple': 2, 'pear' : 10, 'papaya': 1, 'pomegranate': 2}
+    PI.quantity_list =  {'apple': 5, 'orange':5, 'watermelon': 2, 'pineapple': 2, 'pear' : 10, 'papaya': 1, 'pomegranate': 2}
     expected = 46.75 + 6.50
     result = PI.total_cost_shopping() 
     assert(result == expected)

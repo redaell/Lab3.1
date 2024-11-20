@@ -29,12 +29,18 @@ def test_bubble_sort_invalid():
 
     assert (result == [])
 
+def test_bubble_empty():
+    expected = 0
+    input_arr = []
+    result = Lab3.bubble_sort(input_arr, Lab3.SORT_DESCENDING)
+    assert (result == expected)
+
 def test_bubble_too_long():
     expected = 1
     input_arr = [64, 34, 25, 12, 22, 11, 90, 20, 23, 20, 21]
     result = Lab3.bubble_sort(input_arr, Lab3.SORT_DESCENDING)
     assert (result == expected)
-
+ 
 def test_bubble_non_integer():
     expected = 2
     input_arr = [64, 34.3, 25, 12, 22, 11, 90]
